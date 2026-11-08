@@ -1,0 +1,48 @@
+/* Základný vzhľad – plný dizajn príde vo verzii 0.6 */
+.root {
+    -fx-font-family: "System";
+    -fx-font-size: 13px;
+    -fx-background-color: #f4f6f9;
+}
+.header {
+    -fx-background-color: #1f3864;
+    -fx-padding: 12 16 12 16;
+}
+.header .label {
+    -fx-text-fill: white;
+}
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+.info {
+    -fx-opacity: 0.8;
+}
+.panel {
+    -fx-background-color: white;
+    -fx-padding: 14;
+    -fx-border-color: #dde3ea;
+    -fx-border-width: 0 1 0 0;
+}
+.panel-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+.content {
+    -fx-padding: 14;
+}
+.primary {
+    -fx-background-color: #2f5597;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.summary {
+    -fx-background-color: white;
+    -fx-padding: 10 16 10 16;
+    -fx-border-color: #dde3ea;
+    -fx-border-width: 1 0 0 0;
+}
+.warning {
+    -fx-text-fill: #c00000;
+    -fx-font-weight: bold;
+}

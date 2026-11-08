@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sk.upjs.loadmaster.MainController">
+
+    <!-- Horná lišta: názov a výber vozidla -->
+    <top>
+        <VBox styleClass="header" spacing="6">
+            <Label text="LoadMaster" styleClass="title"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Vozidlo:"/>
+                <ComboBox fx:id="truckComboBox" onAction="#onTruckChanged" prefWidth="260"/>
+                <Label fx:id="truckInfoLabel" styleClass="info"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Ľavý panel: formulár na pridanie krabice -->
+    <left>
+        <VBox styleClass="panel" spacing="8" prefWidth="250">
+            <Label text="Pridať náklad" styleClass="panel-title"/>
+            <Label text="Názov"/>
+            <TextField fx:id="nameField" promptText="napr. Paleta A"/>
+            <Label text="Dĺžka × šírka × výška (cm)"/>
+            <HBox spacing="5">
+                <TextField fx:id="lengthField" promptText="120"/>
+                <TextField fx:id="widthField" promptText="80"/>
+                <TextField fx:id="heightField" promptText="150"/>
+            </HBox>
+            <Label text="Hmotnosť (kg)"/>
+            <TextField fx:id="weightField" promptText="250"/>
+            <Label text="Zastávka (poradie vykládky)"/>
+            <TextField fx:id="stopField"/>
+            <CheckBox fx:id="stackableCheckBox" text="Dá sa naň ukladať"/>
+            <Button text="Pridať" onAction="#onAddBox" defaultButton="true" styleClass="primary" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <!-- Stred: tabuľka nákladu -->
+    <center>
+        <VBox spacing="8" styleClass="content">
+            <TableView fx:id="boxTable" VBox.vgrow="ALWAYS">
+                <placeholder>
+                    <Label text="Zatiaľ žiadny náklad – pridaj krabicu vľavo"/>
+                </placeholder>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="nameColumn" text="Názov"/>
+                    <TableColumn fx:id="lengthColumn" text="Dĺžka"/>
+                    <TableColumn fx:id="widthColumn" text="Šírka"/>
+                    <TableColumn fx:id="heightColumn" text="Výška"/>
+                    <TableColumn fx:id="weightColumn" text="kg"/>
+                    <TableColumn fx:id="stopColumn" text="Zastávka"/>
+                    <TableColumn fx:id="stackableColumn" text="Navrch"/>
+                </columns>
+            </TableView>
+            <HBox spacing="8">
+                <Button text="Odstrániť vybranú" onAction="#onRemoveBox"/>
+                <Button text="Vymazať všetko" onAction="#onClearAll"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- Spodná lišta: súhrn -->
+    <bottom>
+        <HBox styleClass="summary" spacing="30">
+            <Label fx:id="countLabel"/>
+            <Label fx:id="weightLabel"/>
+            <Label fx:id="volumeLabel"/>
+        </HBox>
+    </bottom>
+</BorderPane>
